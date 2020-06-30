@@ -1,0 +1,11 @@
+{
+  "name": "cj_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "CJ0206",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.6.3"
+  }
+}
