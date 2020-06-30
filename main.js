@@ -40,7 +40,24 @@ client.on("message", async message => {
 	// Separate command name from arguments
 	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
-	
+	const help = args.shift().toLowerCase()
+
+	// Help commands, these are case sensitive
+	if(command === "help") {
+		if(help == "ping") {
+			message.channel.send("Use the .ping command to check how long it takes me to reply.")
+		} else if(help == "echo") {
+			message.channel.send("Use the .echo command to make me say something in a channel. Don't worry, I'll delete your message first. Only administrators and channel managers can use this command.")
+		} else if(help == "purge") {
+			message.channel.send("Use the .purge command to remove between 2 and 100 messages in a channel. Only @Admin and @ Moderator can use this command.")
+		} else if(help == "donate") {
+			message.channel.send("Use the .donate command to check how long it takes me to replyget a link to my PayPal.me page.")
+		} else {
+			message.channel.send("I'm not sure what you need help with...")
+		}
+	}
+
+
 	// Calculate ping
 	if(command === "ping") {
 	  const m = await message.channel.send("Ping?");
@@ -78,8 +95,8 @@ client.on("message", async message => {
 		message.delete().catch(O_o=>{})
 
 		// Error message if no number, or the wrong number is entered
-		if(!deleteCount || deleteCount < 2 || deleteCount > 500)
-			return message.reply("Please provide a number between 2 and 500 for the number of messages to delete.");
+		if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+			return message.reply("Please provide a number between 2 and 100 for the number of messages to delete.");
 		
 		// Get our messages and delete them
 		const fetched = await message.channel.fetchMessages({limit: deleteCount});
@@ -93,7 +110,7 @@ client.on("message", async message => {
 	if(command === "donate") {
 		// Deletes command message
 		message.delete().catch(O_o=>{})
-		message.channel.send("You can donate to the bit developer here https://www.paypal.me/CJ0206")
+		message.channel.send("You can donate to the bit developer here ####URL HERE####")
 	}
 
 });
