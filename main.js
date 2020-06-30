@@ -9,20 +9,25 @@ const config = require('./config.json');
 
 client.on('ready', () => {
 	console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
-  // Changes the bot's playing game to something useful
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+	// Changes the bot's playing game to something useful
+	// WATCHING can be changed to LISTENING, PLAYING, STREAMING, CUSTOM_STATUS
+	client.user.setActivity(`${client.guilds.size} servers`, {type: "WATCHING"});
 });
 
 client.on("guildCreate", guild => {
 	// This event triggers when the bot joins a guild
 	console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-	client.user.setActivity(`Serving ${client.guilds.size} servers`);
+	// Changes the bot's playing game to something useful
+	// WATCHING can be changed to LISTENING, PLAYING, STREAMING, CUSTOM_STATUS
+	client.user.setActivity(`${client.guilds.size} servers`, {type: "WATCHING"});
 });
 
  client.on("guildDelete", guild => {
-	// this event triggers when the bot is removed from a guild.
+	// This event triggers when the bot is removed from a guild.
 	console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-	client.user.setActivity(`Serving ${client.guilds.size} servers`);
+	// Changes the bot's playing game to something useful
+	// WATCHING can be changed to LISTENING, PLAYING, STREAMING, CUSTOM_STATUS
+	client.user.setActivity(`${client.guilds.size} servers`, {type: "WATCHING"});
  });
 
 client.on("message", async message => {
@@ -59,7 +64,7 @@ client.on("message", async message => {
 		message.channel.send(sayMessage);
 	}
 
-	// Remove all messages from a channel (up to 100)
+	// Remove messages from a channel (up to 100)
 	if(command === "purge") {
 		// Only people with the role "Admin" or "Moderator" can use this command
 		// As an alternative you could use permissions:
@@ -88,7 +93,7 @@ client.on("message", async message => {
 	if(command === "donate") {
 		// Deletes command message
 		message.delete().catch(O_o=>{})
-		message.channel.send("You can donate here #####URL#####")
+		message.channel.send("You can donate to the bit developer here https://www.paypal.me/CJ0206")
 	}
 
 });
