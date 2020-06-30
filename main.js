@@ -42,18 +42,32 @@ client.on("message", async message => {
 	const command = args.shift().toLowerCase();
 	const help = args.shift().toLowerCase()
 
-	// Help commands, these are case sensitive
+	// Help commands, these are case sensitive and responded as embeds 
 	if(command === "help") {
-		if(help == "ping") {
-			message.channel.send("Use the .ping command to check how long it takes me to reply.")
-		} else if(help == "echo") {
-			message.channel.send("Use the .echo command to make me say something in a channel. Don't worry, I'll delete your message first. Only administrators and channel managers can use this command.")
-		} else if(help == "purge") {
-			message.channel.send("Use the .purge command to remove between 2 and 100 messages in a channel. Only @Admin and @ Moderator can use this command.")
-		} else if(help == "donate") {
-			message.channel.send("Use the .donate command to check how long it takes me to replyget a link to my PayPal.me page.")
+
+		// Displays the bot and their avatar as the embed author
+		embed.setAuthor(client.user.username, client.user.displayAvatarURL);
+		// Set embed footer
+		embed.setFooter("Help files");
+		// Set embed colour
+		embed.setColor("BLUE");
+
+		// The first field is the Title, the second field is the Description
+		if(args == "ping") {
+			embed.addField(".ping", "Use this command to check how long it takes me to reply.");
+			message.channel.send((embed));
+		} else if(args == "echo") {
+			embed.addField(".echo", "Use the this command to make me say something in a channel. Don't worry, I'll delete your message first.\n\nOnly administrators and channel managers can use this command.");
+			message.channel.send((embed));
+		} else if(args == "purge") {
+			embed.addField(".purge", "Use this command to remove between 2 and 100 messages in a channel.\n\nOnly @Admin and @ Moderator can use this command");
+			message.channel.send((embed));
+		} else if(args == "donate") {
+			embed.addField(".donate", "Use this command to check how long it takes me to replyget a link to my PayPal.me page.");
+			message.channel.send((embed));
 		} else {
-			message.channel.send("I'm not sure what you need help with...")
+			embed.addField("You didn't tell me what you need help with, please try:", "`ping`, `echo`, `purge`, or `donate`.");
+			message.channel.send((embed));
 		}
 	}
 
