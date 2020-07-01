@@ -63,7 +63,7 @@ client.on("message", async message => {
 			embed.addField(".purge", "Use this command to remove between 2 and 100 messages in a channel.\n\nOnly @Admin and @ Moderator can use this command");
 			message.channel.send((embed));
 		} else if(args == "donate") {
-			embed.addField(".donate", "Use this command to check how long it takes me to replyget a link to my PayPal.me page.");
+			embed.addField(".donate", "Use this command to get a link to my PayPal.me page.");
 			message.channel.send((embed));
 		} else {
 			embed.addField("You didn't tell me what you need help with, please try:", "`ping`, `echo`, `purge`, or `donate`.");
