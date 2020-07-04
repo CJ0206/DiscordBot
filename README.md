@@ -2,6 +2,7 @@
 
 ## Required
 [Install node.js](https://nodejs.org/en/)
+
 [Install Visual Studio Code](https://code.visualstudio.com/) (It's easier to use than notepad++)
 
 ## Start a Discord bot project
