@@ -75,8 +75,8 @@ client.on("message", async message => {
 
 	// Calculate ping
 	if(command === "ping") {
-	  const m = await message.channel.send("Ping?");
-	  m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp} ms. API Latency is ${Math.round(client.ping)} ms.`);
+		const m = await message.channel.send("Pingging....");
+		m.edit(`Latency is ${m.createdTimestamp - message.createdTimestamp} ms. API Latency is ${Math.round(client.ping)} ms.`);
 	}
 
 	// Echo input
@@ -121,9 +121,18 @@ client.on("message", async message => {
 
 	// Sends a donation link
 	if(command === "donate") {
+		// Allows the creation of rich embeds
+		const embed = new Discord.RichEmbed()
+		// Set embed colour
+		embed.setColor("GREEN")
+		// Set embed footer
+		embed.setFooter("Donate", "https://img.icons8.com/ios/50/000000/tip.png")
+		// Set embed description
+		embed.setDescription("You can donate to ###### here #####URL######")
 		// Deletes command message
 		message.delete().catch(O_o=>{})
-		message.channel.send("You can donate to ######## here ########")
+		// Sends the embed
+		message.channel.send((embed));
 	}
 
 	// Server information is sent as a rich embed
@@ -136,7 +145,7 @@ client.on("message", async message => {
 		if(!message.member.roles.some(r=>["Admin", "Moderator"].includes(r.name)) )
 			return message.reply("\n***Error 401***\nSorry, only @Admin and @Moderator have permissions to use this!")
 		// Set embed colour
-		embed.setColor("GREEN");
+		embed.setColor("AQUA");
 		// Set embed thumbnail as the servers avatar
 		embed.setThumbnail(message.guild.iconURL);
 		// Set embed footer
