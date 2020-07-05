@@ -87,7 +87,7 @@ client.on("message", async message => {
 		// As an alternative you could use roles:
 		// if(!message.member.roles.some(r=>["Admin", "Moderator"].includes(r.name)) )
 		if(!message.member.hasPermission(r=>['ADMINISTRATOR', 'MANAGE_CHANNELS'].includes(r.name)) )
-			return message.reply("Sorry, only administrators and channel managers have permissions to use this!")
+			return message.reply("\n***Error 401***\nSorry, only administrators and channel managers have permissions to use this!")
 		const sayMessage = args.join(" ");
 		// Deletes command message
 		message.delete().catch(O_o=>{});
@@ -105,7 +105,7 @@ client.on("message", async message => {
 		// As an alternative you could use permissions:
 		// if(!message.member.hasPermission(r=>['ADMINISTRATOR', 'MANAGE_CHANNELS'].includes(r.name)) )
 		if(!message.member.roles.some(r=>["Admin", "Moderator"].includes(r.name)) )
-			return message.reply("Sorry, only @Admin and @Moderator have permissions to use this!")
+			return message.reply("\n***Error 401***\nSorry, only @Admin and @Moderator have permissions to use this!")
 		const deleteCount = parseInt(args[0], 10);
 		// Deletes command message
 		message.delete().catch(O_o=>{})
@@ -123,7 +123,7 @@ client.on("message", async message => {
 	if(command === "donate") {
 		// Deletes command message
 		message.delete().catch(O_o=>{})
-		message.channel.send("You can donate to ############")
+		message.channel.send("You can donate to ######## here ########")
 	}
 
 	// Server information is sent as a rich embed
@@ -134,7 +134,7 @@ client.on("message", async message => {
 		// As an alternative you could use permissions:
 		// if(!message.member.hasPermission(r=>['ADMINISTRATOR', 'MANAGE_CHANNELS'].includes(r.name)) )
 		if(!message.member.roles.some(r=>["Admin", "Moderator"].includes(r.name)) )
-			return message.reply("Sorry, only @Admin and @Moderator have permissions to use this!")
+			return message.reply("\n***Error 401***\nSorry, only @Admin and @Moderator have permissions to use this!")
 		// Set embed colour
 		embed.setColor("GREEN");
 		// Set embed thumbnail as the servers avatar
