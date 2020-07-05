@@ -1,4 +1,5 @@
 # DiscordBot
+Please note discord.js is not included in the node_modules files here
 
 ## Required
 [Install node.js](https://nodejs.org/en/)
