@@ -159,6 +159,9 @@ client.on("message", async message => {
 		embed.addField("Members", message.guild.memberCount, inline = true);
 		embed.addField("Online", message.guild.members.filter(m => m.presence.status === 'online').size, inline = true);
 		embed.addField("Offline", message.guild.members.filter(m => m.presence.status === 'offline').size, inline = true);
+		embed.addField("Verification Level", message.guild.verificationLevel, inline = true);
+		embed.addField("Humans", message.guild.members.filter(member => !member.user.bot).size, inline = true);
+		embed.addField("Robots", message.guild.members.filter(member => member.user.bot).size, inline = true);
 		embed.addField("\u200B", "\u200B", inline = false); // Creates a blank line
 		embed.addField("Server ID", message.guild.id, inline = false);
 		embed.addField("Server created", message.guild.createdAt, inline = false);
