@@ -7,7 +7,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
 	// This event triggers when the bot is live
-	console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
+	console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.\nLogged in as ${client.user.tag}`); 
 	// Changes the bot's playing game to something useful
 	// WATCHING can be changed to LISTENING, PLAYING, STREAMING, CUSTOM_STATUS
 	client.user.setActivity(`${client.guilds.size} servers`, {type: "WATCHING"});
